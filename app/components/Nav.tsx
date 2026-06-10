@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { AnimatePresence, motion } from "framer-motion";
 import HoverText from "./HoverText";
 import logo from "@/public/if-logo.png";
 
@@ -19,6 +20,7 @@ const scrollTo = (id: string) => {
 
 const Nav = () => {
   const [open, setOpen] = useState(false);
+  const [logoHovered, setLogoHovered] = useState(false);
 
   const handleClick = (id: string) => {
     setOpen(false);
@@ -28,24 +30,77 @@ const Nav = () => {
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <nav className="shell flex items-center justify-between py-5">
-        <a
-          href="#top"
-          onClick={(e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: "smooth" });
-          }}
+        <div
           className="relative z-50"
-          aria-label="Home"
+          onMouseEnter={() => setLogoHovered(true)}
+          onMouseLeave={() => setLogoHovered(false)}
         >
-          <Image
-            src={logo}
-            alt="IF logo"
-            width={48}
-            height={48}
-            className="transition-transform duration-300 ease-in-out hover:scale-110"
-            priority
-          />
-        </a>
+          <a
+            href="#top"
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+            aria-label="Home"
+          >
+            <Image
+              src={logo}
+              alt="IF logo"
+              width={48}
+              height={48}
+              className="transition-transform duration-300 ease-in-out hover:scale-110"
+              priority
+            />
+          </a>
+
+          {/* Vaniverse tooltip — desktop only */}
+          <AnimatePresence>
+            {logoHovered && (
+              <motion.div
+                initial={{ opacity: 0, y: -6 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -6 }}
+                transition={{ duration: 0.18, ease: "easeOut" }}
+                style={{ willChange: "transform" }}
+                className="absolute left-0 top-full mt-4 hidden w-72 border border-line bg-surface p-6 md:block"
+              >
+                {/* Arrow */}
+                <span className="absolute -top-[5px] left-5 h-2 w-2 rotate-45 border-l border-t border-line bg-surface" />
+
+                {/* Word split */}
+                <div className="flex items-start gap-4">
+                  <div>
+                    <span className="font-display text-2xl font-bold uppercase tracking-tight text-ink">
+                      Vani
+                    </span>
+                    <p className="mt-1 font-serif text-xs italic text-faint">
+                      ivan, reversed
+                    </p>
+                  </div>
+                  <span className="mt-1 font-display text-lg text-faint">·</span>
+                  <div>
+                    <span className="font-display text-2xl font-bold uppercase tracking-tight text-accent">
+                      Verse
+                    </span>
+                    <p className="mt-1 font-serif text-xs italic text-faint">
+                      as in universe
+                    </p>
+                  </div>
+                </div>
+
+                {/* Divider */}
+                <span className="my-4 block h-px w-full bg-line" />
+
+                {/* Body */}
+                <p className="font-serif text-sm italic leading-relaxed text-dim">
+                  My universe is bigger than one job title.
+                  <br />
+                  Software is just the corner I chose to build in.
+                </p>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
 
         {/* Desktop links */}
         <ul className="hidden items-center gap-10 font-display text-sm uppercase tracking-[0.2em] md:flex">

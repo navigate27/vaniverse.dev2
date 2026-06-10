@@ -108,10 +108,6 @@ const Projects = () => {
             projects
           </span>
         </h2>
-        <p className="max-w-xs text-sm text-faint">
-          A few things I&apos;ve shipped. Placeholders for now &mdash; the real
-          ones are loading.
-        </p>
       </div>
 
       <div className="grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2">
