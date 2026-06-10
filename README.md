@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# portfolio.vaniverse.dev
 
-## Getting Started
+New portfolio for Ivan Ferrer — a semi-minimalist, dark, fully responsive site built to live on the `portfolio.vaniverse.dev` subdomain. The original site at `vaniverse.dev` is a separate project and is left untouched.
 
-First, run the development server:
+## Stack
+
+- [Next.js 16](https://nextjs.org) (App Router) + React 19
+- [Tailwind CSS v4](https://tailwindcss.com) (CSS-first, token-driven)
+- [Framer Motion](https://www.framer.com/motion/) for kinetic text
+- [Lenis](https://github.com/darkroomengineering/lenis) for smooth scroll
+- `react-icons`
+- Fonts: Space Grotesk (display/body) + Instrument Serif (italic accents) via `next/font/google`
+
+## Design
+
+- Near-black palette (`--color-bg: #0a0a0c`) with the signature red accent (`#fd3345`).
+- Large fluid side margins via `--side-pad: clamp(1.5rem, 8vw, 12rem)`.
+- Lightweight, no heavy raster art — ambient backdrop and grain are pure CSS.
+- All motion respects `prefers-reduced-motion`.
+
+Design tokens live in [`app/globals.css`](app/globals.css); the shared layout wrapper is [`app/components/Section.tsx`](app/components/Section.tsx).
+
+## Develop
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Content
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Section copy lives in each component under `app/sections/`.
+- Projects are placeholder stand-ins in [`app/data/projects.ts`](app/data/projects.ts) — swap `title`, `year`, `blurb`, `stack`, and `link` (and add a screenshot) when ready.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Deploy (Vercel subdomain)
 
-## Learn More
+1. Push this repo to its own GitHub repository.
+2. Create a **new** Vercel project pointed at it (do not touch the existing `vaniverse.dev` project).
+3. In Project → Settings → Domains, add `portfolio.vaniverse.dev`.
+4. At your DNS provider, add the `CNAME` Vercel shows for the `portfolio` subdomain (typically `cname.vercel-dns.com`).
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The old site keeps `vaniverse.dev`; this one serves `portfolio.vaniverse.dev`.
