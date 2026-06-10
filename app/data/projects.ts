@@ -1,3 +1,5 @@
+export type Category = "Web" | "Mobile" | "Game" | "Desktop" | "Tool" | "IoT";
+
 export interface Project {
   title: string;
   year: string;
@@ -6,9 +8,9 @@ export interface Project {
   link: string;
   /** Path relative to /public, e.g. "/projects/aurora-commerce.png" */
   image?: string;
+  categories: Category[];
 }
 
-// Placeholder projects — realistic stand-ins. Swap copy/links/screenshots when ready.
 export const projects: Project[] = [
   {
     title: "Ubiquity",
@@ -16,6 +18,7 @@ export const projects: Project[] = [
     blurb: "An enterprise-grade financial management platform built to centralize and automate mortgage lending operations.",
     stack: ["Angular", "C#", "Docker", "NodeJS"],
     link: "#",
+    categories: ["Web"],
   },
   {
     title: "JBN ERP",
@@ -23,6 +26,7 @@ export const projects: Project[] = [
     blurb: "A web-based enterprise resource planning system built to automate and streamline the operations of JBN Group Consumer Goods Trading.",
     stack: ["Laravel", "MySQL", "Bootstrap", "Angular"],
     link: "#",
+    categories: ["Web"],
   },
   {
     title: "Accenture mySched",
@@ -30,6 +34,7 @@ export const projects: Project[] = [
     blurb: "A digital HR utility built to map employee capabilities, track skills inventory, and optimize internal talent resourcing for corporate projects.",
     stack: ["Angular", "MS SQL", "C#"],
     link: "#",
+    categories: ["Web"],
   },
   {
     title: "Vaniverse Website",
@@ -37,6 +42,7 @@ export const projects: Project[] = [
     blurb: "A clean, asynchronous web application built to search, filter, and explore real-time character data, baseline attributes, and imagery.",
     stack: ["NextJS", "Tailwind"],
     link: "#",
+    categories: ["Web"],
   },
   {
     title: "Allianz Journey",
@@ -45,6 +51,7 @@ export const projects: Project[] = [
     stack: ["Angular", "Ionic", "PayMaya"],
     image: "/projects/allianz-journey.png",
     link: "#",
+    categories: ["Mobile"],
   },
   {
     title: "Weexpress Booking App",
@@ -52,14 +59,15 @@ export const projects: Project[] = [
     blurb: "An on-demand delivery app that allows users to instantly book couriers and manage same-day logistics operations from a mobile device.",
     stack: ["Angular", "Ionic", "MySQL", "Laravel"],
     link: "#",
+    categories: ["Mobile"],
   },
-
   {
     title: "Project360",
     year: "2022",
     blurb: "An enterprise mobile network for corporate OFWs featuring secure community engagement, critical SOS alerting, and a centralized admin panel.",
     stack: ["Angular", "Ionic", "MySQL", "Laravel"],
     link: "#",
+    categories: ["Mobile", "Web"],
   },
   {
     title: "EMMS",
@@ -67,6 +75,7 @@ export const projects: Project[] = [
     blurb: "An enterprise-grade financial management platform built to centralize and automate mortgage lending operations of Mortgage House Australia.",
     stack: ["Angular", "C#", "PostgreSQL", "NodeJS", "Docker"],
     link: "#",
+    categories: ["Web"],
   },
   {
     title: "Mortgage House Website",
@@ -74,6 +83,7 @@ export const projects: Project[] = [
     blurb: "A high-performance WordPress portal optimized for consumer mortgage education, product discovery, and lead acquisition.",
     stack: ["Wordpress", "PHP", "NodeJS", "Angular"],
     link: "https://mortgagehouse.com.au/",
+    categories: ["Web"],
   },
   {
     title: "Aggregator Reporting System (PAGCOR)",
@@ -82,6 +92,7 @@ export const projects: Project[] = [
     stack: ["Angular", "Javascript"],
     link: "#",
     image: "/projects/nemo.png",
+    categories: ["Web", "Tool"],
   },
   {
     title: "Attrisk",
@@ -89,6 +100,7 @@ export const projects: Project[] = [
     blurb: "An AI-driven human resource system built to calculate employee attrition probabilities, monitor workforce sentiment indicators, and deliver deep operational analytics.",
     stack: ["Angular", "LightGBM", "SHAP Framework", "MySQL", "FastAPI"],
     link: "#",
+    categories: ["Web"],
   },
   {
     title: "iSYS - School & Library Management System",
@@ -96,6 +108,7 @@ export const projects: Project[] = [
     blurb: "An all-in-one school and library management utility built to automate student enrollment, records handling, and book borrowing workflows.",
     stack: ["PHP", "MySQL", "jQuery", "Bootstrap"],
     link: "#",
+    categories: ["Web"],
   },
   {
     title: "VoteSys",
@@ -103,6 +116,7 @@ export const projects: Project[] = [
     blurb: "A web-based student election system featuring secure voter authentication and instant, automated ballot tallying.",
     stack: ["PHP", "MySQL", "jQuery", "Bootstrap"],
     link: "#",
+    categories: ["Web"],
   },
   {
     title: "WaiterPOS - Tablet Ordering & Restaurant POS System",
@@ -111,6 +125,7 @@ export const projects: Project[] = [
     stack: ["Cordova", "PhoneGap", "PHP", "MySQL", "jQuery", "Bootstrap"],
     image: "/projects/waiterpos.png",
     link: "#",
+    categories: ["Mobile", "Web"],
   },
   {
     title: "Barangay Management System",
@@ -119,6 +134,7 @@ export const projects: Project[] = [
     stack: ["PHP", "MySQL", "jQuery", "Bootstrap"],
     image: "/projects/bms.png",
     link: "#",
+    categories: ["Web"],
   },
   {
     title: "VoltTrack",
@@ -127,6 +143,7 @@ export const projects: Project[] = [
     stack: ["PHP", "MySQL", "jQuery", "Bootstrap"],
     image: "/projects/volt-track.png",
     link: "#",
+    categories: ["Web", "IoT"],
   },
   {
     title: "E-Pisara",
@@ -135,6 +152,7 @@ export const projects: Project[] = [
     stack: ["Laravel", "MySQL", "Bootstrap"],
     image: "/projects/episara.png",
     link: "#",
+    categories: ["Web"],
   },
   {
     title: "Sociov",
@@ -143,6 +161,7 @@ export const projects: Project[] = [
     stack: ["Laravel", "MySQL", "Bootstrap"],
     image: "/projects/sociov.png",
     link: "#",
+    categories: ["Web"],
   },
   {
     title: "CAMS - Cash Management System",
@@ -151,6 +170,7 @@ export const projects: Project[] = [
     stack: ["Angular", "MySQL", "Laravel"],
     link: "#",
     image: "/projects/cams.png",
+    categories: ["Web"],
   },
   {
     title: "Nemo Insight",
@@ -159,6 +179,7 @@ export const projects: Project[] = [
     stack: ["Angular", "Google Looker Studio"],
     link: "#",
     image: "/projects/nemo-insight.png",
+    categories: ["Web", "Tool"],
   },
   {
     title: "Nemo Ticketing App",
@@ -167,6 +188,7 @@ export const projects: Project[] = [
     stack: ["Angular", "Firebase"],
     link: "#",
     image: "/projects/nemo-ticket.png",
+    categories: ["Web", "Tool"],
   },
   {
     title: "KLL Scholarship",
@@ -174,6 +196,7 @@ export const projects: Project[] = [
     blurb: "A web-based scholarship management utility built to automate applicant screening, verify academic compliance, and manage local student grants for KLL.",
     stack: ["Angular", "Laravel", "MySQL"],
     link: "https://kll-scholarship.netlify.app/",
+    categories: ["Web"],
   },
   {
     title: "SMART Solutions",
@@ -181,6 +204,7 @@ export const projects: Project[] = [
     blurb: "A dual-platform biometric system that bridges a Windows desktop capture utility with a web interface to automate and monitor student attendance at BatStateU.",
     stack: ["Angular", "Laravel", "MySQL", "C#", "DigitalPersona API"],
     link: "https://smart-solutions-app.netlify.app/login",
+    categories: ["Web", "Desktop"],
   },
   {
     title: "PazMed Inventory",
@@ -188,6 +212,7 @@ export const projects: Project[] = [
     blurb: "A medical inventory system built to monitor pharmacy stock levels, manage drug expiration logs, and optimize supply chains.",
     stack: ["ASP.NET", "MySQL", "Javascaript", "Bootstrap"],
     link: "#",
+    categories: ["Web"],
   },
   {
     title: "Less Consumo Inventory",
@@ -195,6 +220,7 @@ export const projects: Project[] = [
     blurb: "A specialized inventory platform built to manage unique, curated apparel stock and streamline boutique operations for a sophisticated thrift brand.",
     stack: ["ASP.NET", "MySQL", "Javascaript", "Bootstrap"],
     link: "#",
+    categories: ["Web"],
   },
   {
     title: "Karabag - Truck and Trailer Sales Ecommerce Platform",
@@ -202,6 +228,7 @@ export const projects: Project[] = [
     blurb: "A B2B e-commerce platform engineered for digital commercial truck sales and fleet inventory management.",
     stack: ["Angular", "C#", "MS SQL"],
     link: "#",
+    categories: ["Web"],
   },
   {
     title: "Citr.io",
@@ -209,6 +236,7 @@ export const projects: Project[] = [
     blurb: "An educational mobile application featuring a suite of three interactive mini-games designed to simplify and teach the mechanics of the Citric Acid Cycle.",
     stack: ["Construct3"],
     link: "#",
+    categories: ["Game", "Mobile"],
   },
   {
     title: "Hawkeye: The Marksman",
@@ -216,6 +244,7 @@ export const projects: Project[] = [
     blurb: "A physics-based mobile puzzle platformer where players navigate complex obstacle courses by strategically deploying a specialized quiver of trick, utility, and tactical arrows.",
     stack: ["Construct3"],
     link: "#",
+    categories: ["Game", "Mobile"],
   },
   {
     title: "Captain America: Civil Fight",
@@ -223,6 +252,7 @@ export const projects: Project[] = [
     blurb: "A top-down action game built around bouncing shield mechanics, environmental geometry navigation, and combat power-up progression.",
     stack: ["Construct3"],
     link: "#",
+    categories: ["Game", "Mobile"],
   },
   {
     title: "COVID Buster",
@@ -230,6 +260,7 @@ export const projects: Project[] = [
     blurb: "A unique, pacifist action-puzzle game prototype where the player cannot shoot, instead defeating infectious waves by manipulating enemy friendly fire, ricocheting projectiles, and deploying defensive power-ups.",
     stack: ["Construct3"],
     link: "#",
+    categories: ["Game", "Mobile"],
   },
   {
     title: "NgayonPH",
@@ -237,6 +268,7 @@ export const projects: Project[] = [
     blurb: "A digital marketplace platform built to catalog local event suppliers, optimize vendor search filtering, and bridge coordination between coordinators and service providers.",
     stack: ["PostgreSQL", "Supabase", "Bootstrap", "Angular"],
     link: "https://ngayonph.netlify.app/",
+    categories: ["Web"],
   },
   {
     title: "HAYP AR Scanner",
@@ -244,6 +276,7 @@ export const projects: Project[] = [
     blurb: "An augmented reality mobile application built to scan custom print media, images, and physical products to seamlessly render interactive digital experiences.",
     stack: ["Javascript", "Bootstrap", "MindAR", "PHP"],
     link: "#",
+    categories: ["Web", "IoT"],
   },
   {
     title: "Pokedex website",
@@ -251,6 +284,7 @@ export const projects: Project[] = [
     blurb: "A clean, asynchronous web application built to search, filter, and explore real-time character data, baseline attributes, and imagery.",
     stack: ["Angular", "Tailwind", "Pokedex API"],
     link: "#",
+    categories: ["Web"],
   },
   {
     title: "Jessey De Leon",
@@ -259,6 +293,7 @@ export const projects: Project[] = [
     stack: ["Wordpress", "Javascript", "CSS", "jQuery"],
     image: "/projects/jessey.png",
     link: "#",
+    categories: ["Web"],
   },
   {
     title: "GSoft School Management System",
@@ -266,6 +301,7 @@ export const projects: Project[] = [
     blurb: "An all-in-one school management platform that automates academic tracking, student enrollment, and daily administrative operations.",
     stack: ["AngularJS", "C#", "MS SQL", "jQuery"],
     link: "#",
+    categories: ["Web"],
   },
   {
     title: "Accounting Master Supplies Tool",
@@ -273,7 +309,8 @@ export const projects: Project[] = [
     blurb: "A data transformation utility that maps, cross-references, and formats master data and POs into a standardized, ERP-ready schema.",
     stack: ["Javascript", "HTML", "CSS", "jQuery"],
     link: "#",
-    image: "/projects/acct-master.png"
+    image: "/projects/acct-master.png",
+    categories: ["Web", "Tool"],
   },
   {
     title: "Attendance-Leave Merger Tool",
@@ -282,6 +319,7 @@ export const projects: Project[] = [
     stack: ["Javascript", "HTML", "CSS", "jQuery"],
     image: "/projects/attendance-leave.png",
     link: "#",
+    categories: ["Web", "Tool"],
   },
   {
     title: "CAD Temporary Program System",
@@ -290,6 +328,7 @@ export const projects: Project[] = [
     stack: ["MySQL", "Outlook Mail API", "jQuery", "MS Access"],
     image: "/projects/cad-temp.png",
     link: "#",
+    categories: ["Web", "Tool"],
   },
   {
     title: "CUSTOMER CLAIM INFORMATION SYSTEM",
@@ -297,6 +336,7 @@ export const projects: Project[] = [
     blurb: "A customer claim management system that tracks, validates, and processes customer claims.",
     stack: ["PHP", "MySQL", "jQuery"],
     link: "#",
+    categories: ["Web", "Tool"],
   },
   {
     title: "DAILY ATTENDANCE MONITORING SYSTEM",
@@ -304,6 +344,7 @@ export const projects: Project[] = [
     blurb: "An attendance monitoring system that tracks employee attendance and generates reports.",
     stack: ["PHP", "MySQL", "jQuery"],
     link: "#",
+    categories: ["Web", "Tool"],
   },
   {
     title: "DESIGN ISSUANCE SYSTEM",
@@ -311,6 +352,7 @@ export const projects: Project[] = [
     blurb: "A design issuance system that tracks, validates, and processes design issuance requests.",
     stack: ["PHP", "MySQL", "jQuery"],
     link: "#",
+    categories: ["Web", "Tool"],
   },
   {
     title: "DUE DATE CONTROL SYSTEM",
@@ -318,6 +360,7 @@ export const projects: Project[] = [
     blurb: "A due date control system that tracks, validates, and processes due date requests.",
     stack: ["PHP", "MySQL", "jQuery"],
     link: "#",
+    categories: ["Web", "Tool"],
   },
   {
     title: "FAST SUPPORT SYSTEM",
@@ -325,6 +368,7 @@ export const projects: Project[] = [
     blurb: "A logistics data conversion utility that cross-references FSIB order history, packing data, and shipping parameters into a standardized format.",
     stack: ["Javascript", "HTML", "CSS", "jQuery"],
     link: "#",
+    categories: ["Tool"],
   },
   {
     title: "FG LOADING SYSTEM",
@@ -332,6 +376,7 @@ export const projects: Project[] = [
     blurb: "A mobile logistics app that scans finished goods to retrieve product information and track loading operations in real time.",
     stack: ["Cordova", "MySQL", "Rest API", "jQuery"],
     link: "#",
+    categories: ["Mobile", "Tool"],
   },
   {
     title: "FGI IMAGE VIEWER SYSTEM",
@@ -339,5 +384,6 @@ export const projects: Project[] = [
     blurb: "An inventory support utility for viewing, managing, and verifying inspection images of finished goods.",
     stack: ["Javascript", "HTML", "CSS", "jQuery"],
     link: "#",
+    categories: ["Web", "Tool"],
   },
 ];
