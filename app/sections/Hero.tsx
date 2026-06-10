@@ -47,7 +47,7 @@ const Hero = () => {
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.3, duration: 0.9 }}
-        className="mt-12 max-w-md font-body text-base leading-relaxed text-dim"
+        className="mt-12 mb-12 max-w-md font-body text-base leading-relaxed text-dim"
       >
         Technical Lead & Software Engineer crafting fast, thoughtful web, mobile,
         and backend experiences.
@@ -57,7 +57,7 @@ const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.8, duration: 1 }}
-        className="absolute bottom-10 left-[var(--side-pad)] flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-faint"
+        className="mt-auto pb-10 flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-faint"
       >
         <span className="inline-block h-8 w-px animate-pulse bg-faint" />
         Scroll

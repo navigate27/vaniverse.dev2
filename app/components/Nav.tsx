@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import HoverText from "./HoverText";
-import logo from "@/public/vani.verse-logo.png";
+import logo from "@/public/if-logo.png";
 
 const links = [
   { label: "About", id: "about" },
@@ -39,10 +39,10 @@ const Nav = () => {
         >
           <Image
             src={logo}
-            alt="vani.verse logo"
-            width={44}
-            height={44}
-            className="transition-transform duration-300 ease-in-out hover:rotate-[25deg]"
+            alt="IF logo"
+            width={48}
+            height={48}
+            className="transition-transform duration-300 ease-in-out hover:scale-110"
             priority
           />
         </a>
