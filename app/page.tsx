@@ -7,6 +7,7 @@ import Exp from "./sections/Exp";
 import Roles from "./sections/Roles";
 import Projects from "./sections/Projects";
 import Motto from "./sections/Motto";
+import CV from "./sections/CV";
 import Contact from "./sections/Contact";
 import Footer from "./sections/Footer";
 
@@ -34,6 +35,7 @@ export default function Home() {
         <Roles />
         <Projects />
         <Motto />
+        <CV />
         <Contact />
       </main>
       <Footer />

@@ -7,8 +7,8 @@ import logo from "@/public/if-logo.png";
 
 const links = [
   { label: "About", id: "about" },
-  { label: "Work", id: "exp" },
-  { label: "Proof", id: "projects" },
+  { label: "EXP", id: "exp" },
+  { label: "Projects", id: "projects" },
   { label: "Contact", id: "contact" },
 ];
 

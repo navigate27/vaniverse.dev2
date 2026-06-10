@@ -104,8 +104,6 @@ const Projects = () => {
     <Section id="projects" label="Proof of work">
       <div className="mb-14 flex flex-wrap items-end justify-between gap-4">
         <h2 className="font-display text-[clamp(2rem,7vw,5rem)] font-bold uppercase leading-none tracking-tight">
-          Selected
-          <br />
           <span className="font-serif italic lowercase text-accent-soft">
             projects
           </span>
