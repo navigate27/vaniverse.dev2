@@ -23,7 +23,7 @@ export const projects: Project[] = [
   {
     title: "JBN ERP",
     year: "2026",
-    blurb: "A web-based enterprise resource planning system built to automate and streamline the operations of JBN Group Consumer Goods Trading.",
+    blurb: "A web-based customized ERP system built to automate and streamline the operations of JBN Consumer Goods Trading.",
     stack: ["Laravel", "MySQL", "Bootstrap", "Angular"],
     link: "#",
     categories: ["Web"],
