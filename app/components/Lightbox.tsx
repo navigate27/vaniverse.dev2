@@ -43,13 +43,13 @@ const Lightbox = ({ src, alt, onClose }: LightboxProps) => {
         className="relative max-h-full w-full max-w-5xl"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="relative w-full overflow-hidden rounded-xl border border-line">
+        <div className="relative w-full overflow-hidden rounded-xl border border-line" style={{ maxHeight: "calc(100dvh - 8rem)" }}>
           <Image
             src={src}
             alt={alt}
-            width={1920}
-            height={1080}
-            className="h-auto w-full object-contain"
+            width={3840}
+            height={3840}
+            className="h-auto max-h-[calc(100dvh-8rem)] w-full object-contain"
             sizes="(max-width: 768px) 100vw, 80vw"
             priority
           />
