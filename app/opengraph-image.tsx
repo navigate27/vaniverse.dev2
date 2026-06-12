@@ -104,10 +104,7 @@ export default async function OpenGraphImage() {
             <p style={{ ...headline, color: "#f5f5f7" }}>one line</p>
             <p style={{ ...headline, color: "#f5f5f7" }}>
               at a{" "}
-              <span style={{ textTransform: "lowercase", color: "#ac9fd6" }}>
-                time
-              </span>
-              .
+              <span style={{ color: "#ac9fd6" }}>TIME</span>.
             </p>
           </div>
 
@@ -127,13 +124,11 @@ export default async function OpenGraphImage() {
 
           <p
             style={{
-              position: "absolute",
-              bottom: 0,
-              left: 0,
               fontFamily: "Space Grotesk",
               fontSize: 24,
               color: "#fd3345",
               margin: 0,
+              marginTop: 24,
               letterSpacing: "0.1em",
             }}
           >
