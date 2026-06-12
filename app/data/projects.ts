@@ -77,7 +77,7 @@ export const projects: Project[] = [
     year: "2026",
     blurb: "A lightweight, zero-friction web utility designed for instant, real-time name drawing among physically present groups, completely bypassing the need for user sign-ups, emails, or digital invitations.",
     stack: ["NextJS", "Tailwind"],
-    link: "bunutan.vaniverse.dev",
+    link: "https://bunutan.vaniverse.dev",
     image: "/projects/bunutan.png",
     categories: ["Web"],
   },
