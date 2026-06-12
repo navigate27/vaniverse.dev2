@@ -10,6 +10,7 @@ import Motto from "./sections/Motto";
 import CV from "./sections/CV";
 import Contact from "./sections/Contact";
 import Footer from "./sections/Footer";
+import { Analytics } from '@vercel/analytics/next';
 
 export default function Home() {
   return (
@@ -39,6 +40,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
+      <Analytics />
     </>
   );
 }
