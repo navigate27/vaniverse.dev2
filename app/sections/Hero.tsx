@@ -2,6 +2,7 @@
 
 import WordStagger from "../components/WordStagger";
 import { motion } from "framer-motion";
+import { site } from "../data/site";
 
 const Hero = () => {
   return (
@@ -15,7 +16,8 @@ const Hero = () => {
         transition={{ delay: 1.1, duration: 1 }}
         className="mb-8 font-display text-xs uppercase tracking-[0.4em] text-accent-soft md:text-sm"
       >
-        Ivan Ferrer
+        {site.name}
+        <span className="text-faint"> · {site.location.code}</span>
       </motion.p>
 
       <h1 className="font-display text-[clamp(2.75rem,11vw,9rem)] font-bold uppercase leading-[0.92] tracking-[-0.03em]">

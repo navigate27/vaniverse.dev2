@@ -1,9 +1,6 @@
 import Section from "../components/Section";
 import Reveal from "../components/Reveal";
-import AnimatedLink from "../components/AnimatedLink";
-import { FaLinkedinIn, FaInstagram } from "react-icons/fa";
-import { SiGmail } from "react-icons/si";
-import { RiThreadsFill } from "react-icons/ri";
+import ContactLinks from "../components/ContactLinks";
 
 const Contact = () => {
   return (
@@ -21,31 +18,8 @@ const Contact = () => {
       </Reveal>
 
       <Reveal delay={0.2}>
-        <div className="mt-10 flex flex-wrap items-center gap-2">
-          <AnimatedLink
-            href="mailto:ivanmatthewferrer@gmail.com"
-            bgColor="#f55041"
-            label="Gmail"
-            icon={<SiGmail />}
-          />
-          <AnimatedLink
-            href="https://www.linkedin.com/in/ivan-matthew-ferrer-664a71123"
-            bgColor="#1469c7"
-            label="LinkedIn"
-            icon={<FaLinkedinIn />}
-          />
-          <AnimatedLink
-            href="https://www.instagram.com/vani.verse_/"
-            bgColor="#f7236e"
-            label="Instagram"
-            icon={<FaInstagram />}
-          />
-          <AnimatedLink
-            href="https://www.threads.com/@vani.verse_"
-            bgColor="#070707"
-            label="Threads"
-            icon={<RiThreadsFill />}
-          />
+        <div className="mt-10">
+          <ContactLinks />
         </div>
       </Reveal>
     </Section>

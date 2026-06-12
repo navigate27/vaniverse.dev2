@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import HoverText from "./HoverText";
+import AvailabilityBadge from "./AvailabilityBadge";
 import logo from "@/public/if-logo.png";
 
 const links = [
@@ -102,6 +103,10 @@ const Nav = () => {
           </AnimatePresence>
         </div>
 
+        <div className="hidden md:block">
+          <AvailabilityBadge />
+        </div>
+
         {/* Desktop links */}
         <ul className="hidden items-center gap-10 font-display text-sm uppercase tracking-[0.2em] md:flex">
           {links.map((l) => (
@@ -116,13 +121,14 @@ const Nav = () => {
           ))}
         </ul>
 
-        {/* Mobile toggle */}
-        <button
-          onClick={() => setOpen((v) => !v)}
-          className="relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-[6px] md:hidden"
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-        >
+        <div className="flex items-center gap-3 md:hidden">
+          <AvailabilityBadge compact />
+          <button
+            onClick={() => setOpen((v) => !v)}
+            className="relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-[6px]"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+          >
           <span
             className={`block h-[2px] w-7 bg-ink transition-all duration-300 ${
               open ? "translate-y-[8px] rotate-45" : ""
@@ -138,7 +144,8 @@ const Nav = () => {
               open ? "-translate-y-[8px] -rotate-45" : ""
             }`}
           />
-        </button>
+          </button>
+        </div>
       </nav>
 
       {/* Mobile overlay */}
