@@ -11,6 +11,7 @@ import CV from "./sections/CV";
 import Contact from "./sections/Contact";
 import Footer from "./sections/Footer";
 import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export default function Home() {
   return (
@@ -41,6 +42,7 @@ export default function Home() {
       </main>
       <Footer />
       <Analytics />
+      <SpeedInsights />
     </>
   );
 }
