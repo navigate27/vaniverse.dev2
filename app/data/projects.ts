@@ -73,6 +73,15 @@ export const projects: Project[] = [
     categories: ["Web"],
   },
   {
+    title: "Bunutan Live",
+    year: "2026",
+    blurb: "A lightweight, zero-friction web utility designed for instant, real-time name drawing among physically present groups, completely bypassing the need for user sign-ups, emails, or digital invitations.",
+    stack: ["NextJS", "Tailwind"],
+    link: "bunutan.vaniverse.dev",
+    image: "/projects/bunutan.png",
+    categories: ["Web"],
+  },
+  {
     title: "EMMS",
     year: "2023",
     blurb: "An enterprise-grade financial management platform built to centralize and automate mortgage lending operations of Mortgage House Australia.",
