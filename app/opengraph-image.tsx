@@ -1,3 +1,5 @@
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import { ImageResponse } from "next/og";
 import { site } from "./data/site";
 
@@ -19,11 +21,16 @@ async function loadSpaceGroteskBold() {
 }
 
 export default async function OpenGraphImage() {
-  const spaceGroteskBold = await loadSpaceGroteskBold();
+  const [spaceGroteskBold, photoData] = await Promise.all([
+    loadSpaceGroteskBold(),
+    readFile(join(process.cwd(), "public/me.png")),
+  ]);
+
+  const photoSrc = `data:image/png;base64,${photoData.toString("base64")}`;
 
   const headline = {
     fontFamily: "Space Grotesk",
-    fontSize: 76,
+    fontSize: 64,
     fontWeight: 700,
     textTransform: "uppercase" as const,
     lineHeight: 0.92,
@@ -38,8 +45,9 @@ export default async function OpenGraphImage() {
           width: "100%",
           height: "100%",
           display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
           padding: "80px",
           backgroundColor: "#0a0a0c",
           position: "relative",
@@ -68,66 +76,107 @@ export default async function OpenGraphImage() {
           }}
         />
 
-        <p
+        <div
           style={{
-            fontFamily: "Space Grotesk",
-            fontSize: 28,
-            letterSpacing: "0.4em",
-            textTransform: "uppercase",
-            color: "#ac9fd6",
-            margin: 0,
-            marginBottom: 32,
+            display: "flex",
+            flexDirection: "column",
+            flex: 1,
+            position: "relative",
           }}
         >
-          {site.name}
-        </p>
+          <p
+            style={{
+              fontFamily: "Space Grotesk",
+              fontSize: 28,
+              letterSpacing: "0.4em",
+              textTransform: "uppercase",
+              color: "#ac9fd6",
+              margin: 0,
+              marginBottom: 32,
+            }}
+          >
+            {site.name}
+          </p>
 
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <p style={{ ...headline, color: "#f5f5f7" }}>Building</p>
-          <p style={{ ...headline, color: "#fd3345" }}>worlds</p>
-          <p style={{ ...headline, color: "#f5f5f7" }}>one line</p>
-          <p style={{ ...headline, color: "#f5f5f7", display: "flex" }}>
-            at a{" "}
-            <span
-              style={{
-                textTransform: "lowercase",
-                color: "#ac9fd6",
-              }}
-            >
-              time
-            </span>
-            .
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <p style={{ ...headline, color: "#f5f5f7" }}>Building</p>
+            <p style={{ ...headline, color: "#fd3345" }}>worlds</p>
+            <p style={{ ...headline, color: "#f5f5f7" }}>one line</p>
+            <p style={{ ...headline, color: "#f5f5f7" }}>
+              at a{" "}
+              <span style={{ textTransform: "lowercase", color: "#ac9fd6" }}>
+                time
+              </span>
+              .
+            </p>
+          </div>
+
+          <p
+            style={{
+              fontFamily: "Space Grotesk",
+              fontSize: 28,
+              color: "#8a8499",
+              margin: 0,
+              marginTop: 40,
+              maxWidth: 520,
+              lineHeight: 1.4,
+            }}
+          >
+            {site.jobTitle}
+          </p>
+
+          <p
+            style={{
+              position: "absolute",
+              bottom: 0,
+              left: 0,
+              fontFamily: "Space Grotesk",
+              fontSize: 24,
+              color: "#fd3345",
+              margin: 0,
+              letterSpacing: "0.1em",
+            }}
+          >
+            {site.siteName}
           </p>
         </div>
 
-        <p
+        <div
           style={{
-            fontFamily: "Space Grotesk",
-            fontSize: 28,
-            color: "#8a8499",
-            margin: 0,
-            marginTop: 40,
-            maxWidth: 700,
-            lineHeight: 1.4,
+            display: "flex",
+            position: "relative",
+            width: 260,
+            height: 347,
+            overflow: "hidden",
+            flexShrink: 0,
+            marginLeft: 48,
+            border: "1px solid #221f2b",
           }}
         >
-          {site.jobTitle}
-        </p>
-
-        <p
-          style={{
-            position: "absolute",
-            bottom: 80,
-            right: 80,
-            fontFamily: "Space Grotesk",
-            fontSize: 24,
-            color: "#fd3345",
-            margin: 0,
-            letterSpacing: "0.1em",
-          }}
-        >
-          {site.siteName}
-        </p>
+          <img
+            src={photoSrc}
+            alt=""
+            width={260}
+            height={347}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              objectPosition: "top",
+              filter: "grayscale(100%)",
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              bottom: 0,
+              left: 0,
+              width: 48,
+              height: 4,
+              backgroundColor: "#fd3345",
+            }}
+          />
+        </div>
       </div>
     ),
     {
