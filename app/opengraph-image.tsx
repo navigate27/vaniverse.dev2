@@ -5,7 +5,32 @@ export const alt = site.title;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-export default function OpenGraphImage() {
+async function loadSpaceGroteskBold() {
+  const url =
+    "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap";
+  const css = await (await fetch(url)).text();
+  const match = css.match(/src: url\((.+)\) format\('(?:opentype|truetype)'\)/);
+
+  if (!match?.[1]) {
+    throw new Error("Failed to load font: Space Grotesk");
+  }
+
+  return fetch(match[1]).then((res) => res.arrayBuffer());
+}
+
+export default async function OpenGraphImage() {
+  const spaceGroteskBold = await loadSpaceGroteskBold();
+
+  const headline = {
+    fontFamily: "Space Grotesk",
+    fontSize: 76,
+    fontWeight: 700,
+    textTransform: "uppercase" as const,
+    lineHeight: 0.92,
+    letterSpacing: "-0.03em",
+    margin: 0,
+  };
+
   return new ImageResponse(
     (
       <div
@@ -45,6 +70,7 @@ export default function OpenGraphImage() {
 
         <p
           style={{
+            fontFamily: "Space Grotesk",
             fontSize: 28,
             letterSpacing: "0.4em",
             textTransform: "uppercase",
@@ -56,24 +82,27 @@ export default function OpenGraphImage() {
           {site.name}
         </p>
 
-        <p
-          style={{
-            fontSize: 72,
-            fontWeight: 700,
-            textTransform: "uppercase",
-            color: "#f5f5f7",
-            lineHeight: 0.95,
-            letterSpacing: "-0.03em",
-            margin: 0,
-            maxWidth: 900,
-          }}
-        >
-          Building{" "}
-          <span style={{ color: "#fd3345" }}>worlds</span> one line at a time.
-        </p>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <p style={{ ...headline, color: "#f5f5f7" }}>Building</p>
+          <p style={{ ...headline, color: "#fd3345" }}>worlds</p>
+          <p style={{ ...headline, color: "#f5f5f7" }}>one line</p>
+          <p style={{ ...headline, color: "#f5f5f7", display: "flex" }}>
+            at a{" "}
+            <span
+              style={{
+                textTransform: "lowercase",
+                color: "#ac9fd6",
+              }}
+            >
+              time
+            </span>
+            .
+          </p>
+        </div>
 
         <p
           style={{
+            fontFamily: "Space Grotesk",
             fontSize: 28,
             color: "#8a8499",
             margin: 0,
@@ -90,6 +119,7 @@ export default function OpenGraphImage() {
             position: "absolute",
             bottom: 80,
             right: 80,
+            fontFamily: "Space Grotesk",
             fontSize: 24,
             color: "#fd3345",
             margin: 0,
@@ -100,6 +130,16 @@ export default function OpenGraphImage() {
         </p>
       </div>
     ),
-    { ...size }
+    {
+      ...size,
+      fonts: [
+        {
+          name: "Space Grotesk",
+          data: spaceGroteskBold,
+          weight: 700,
+          style: "normal",
+        },
+      ],
+    }
   );
 }
